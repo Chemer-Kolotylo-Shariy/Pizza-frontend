@@ -1,0 +1,16 @@
+ul, li {
+  height: 350px;
+}
+
+.radio-btn{
+  width: 80px;
+  height: 32px;
+  margin-left: 10px;
+}
+
+.word {
+  width: 330px;
+  text-align: center;
+  /*word-break: break-all;*/
+}
+

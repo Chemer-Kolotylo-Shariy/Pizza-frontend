@@ -1,3 +1,30 @@
-<p>
-  products works!
-</p>
+<h2>{{categoryName}}</h2>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-inline">
+      <li style="margin-bottom: 100px" class="col-xs-3 list-inline-item" *ngFor="let ArrayProd of newProduct">
+        <div style="height:100%">
+          <form style="height:100%" #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="modal-header"><a href="#" title="pizza1"><img class="img-responsive" src="{{photoPathStart}}{{ArrayProd[0].photo}}{{photoPathEnd}}"></a></div>
+            <div style="height: 200px">
+              <div style="height:auto">
+                <div>
+                  <h3 class="text-center">{{ArrayProd[0].name}}</h3>
+                  <p style="max-height: none" class="text-center word">{{ArrayProd[0].specification}}</p>
+                </div>
+                <div class="radio-button-size radio-btn  list-inline-item" *ngFor="let p of ArrayProd">
+                  <label class="radio ">
+                    <input type="radio" required ngModel [value]="p" name="size">
+                    <span> Size: </span>
+                  </label><br><span>{{p.priceWithPersent}} zl</span>
+                </div>
+              </div>
+              <div class="modal-footer bottom"><button class="btn btn-block btn-info center-block">Add to basket</button></div>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

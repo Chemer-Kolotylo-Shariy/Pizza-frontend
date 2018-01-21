@@ -1,3 +1,96 @@
-<p>
-  navbar works!
-</p>
+<div class="vertical-menu">
+  <div class="line-place">
+    <p class="logo"><img src="{{logo}}" alt="Logo" width="80" height="40"></p>
+    <div class="cartMini">0
+      <!-- Mini shopping cart -->
+      <!--&lt;!&ndash;(mouseenter)="loadCart()"&ndash;&gt;-->
+
+      <div class="tooltiptext1">
+        <!--<h4>shopping-cart works!</h4>-->
+        <table class="table table-striped ">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">About</th>
+            <th scope="col">X</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of items">
+            <td><img style="width: 100px; height: 100px" src="{{photoPathStart}}{{ item.product.photo}}{{ photoPathEnd}}"></td>
+            <td>
+              <div>
+                <strong>name</strong>
+                <div class="info-mini-cart-price-amount">3 x 20zł</div>
+              </div>
+            </td>
+            <td align="center"><a href="#">X</a></td>
+            <!--(click)="remove(item.product.id)"-->
+          </tr>
+          <tr>
+            <td  align="left" scope="row">Price: </td>
+            <td colspan="2" align="left">123 zł</td>
+          </tr>
+          <tr><td colspan="3"><button class="btn btn-block btn-primary">Buy</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Mini shopping cart -->
+
+    </div>
+  </div>
+
+  <ul class="nav flex-column">
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/home'" class="nav-link a">Home</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="['/product', {categoryName: 'PIZZA'}]" class="nav-link a">Pizza</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="['/product', {categoryName: 'BURGER'}]" class="nav-link a">Burger</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="['/product', {categoryName: 'Sushi'}]" class="nav-link a">Sushi</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="['/product', {categoryName: 'NAPOJ'}]" class="nav-link a">Napój</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+    <li class="nav-item element-naw">
+      <a [routerLink]="'/product'" class="nav-link a">O nas</a>
+    </li>
+  </ul>
+</div>
