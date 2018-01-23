@@ -8,6 +8,7 @@ import {HomeComponent} from "./home/home.component";
 import {ProductsComponent} from "./products/products.component";
 import {NavbarComponent} from "./shared/components/navbar/navbar.component";
 import {ProductService} from "./shared/services/product.service";
+import {ShoppingCartServece} from "./shared/services/shopping-cart.servece";
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import {ProductService} from "./shared/services/product.service";
     ProductsComponent,
     NavbarComponent
   ],
-  providers: [ProductService]
+  providers: [ProductService, ShoppingCartServece]
 })
 export class SystemModule{}
 /**/

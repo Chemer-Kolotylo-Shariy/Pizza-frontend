@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
+  isLoad = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  onLogin(){
+    this.isLoad = false;
+  }
+
+  onRegister(){
+    this.isLoad = true;
+  }
+
+
 
 }
