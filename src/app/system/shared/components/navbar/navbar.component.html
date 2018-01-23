@@ -1,7 +1,7 @@
 <div class="vertical-menu">
   <div class="line-place">
     <p class="logo"><img src="{{logo}}" alt="Logo" width="80" height="40"></p>
-    <div class="cartMini">0
+    <div class="cartMini" (mouseenter)="loadCart()">0
       <!-- Mini shopping cart -->
       <!--&lt;!&ndash;(mouseenter)="loadCart()"&ndash;&gt;-->
 
@@ -16,20 +16,20 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let item of items">
+          <tr *ngFor="let item of itemsCart.items">
             <td><img style="width: 100px; height: 100px" src="{{photoPathStart}}{{ item.product.photo}}{{ photoPathEnd}}"></td>
             <td>
               <div>
-                <strong>name</strong>
-                <div class="info-mini-cart-price-amount">3 x 20zł</div>
+                <strong>{{item.product.name}}</strong>
+                <div class="info-mini-cart-price-amount">{{item.quantity}} x {{item.product.priceWithPersent}}zł</div>
               </div>
             </td>
-            <td align="center"><a href="#">X</a></td>
+            <td align="center"><a (click)="remove(item.product)">X</a></td>
             <!--(click)="remove(item.product.id)"-->
           </tr>
           <tr>
             <td  align="left" scope="row">Price: </td>
-            <td colspan="2" align="left">123 zł</td>
+            <td colspan="2" align="left">{{itemsCart.totalPrice}} zł</td>
           </tr>
           <tr><td colspan="3"><button class="btn btn-block btn-primary">Buy</button></td></tr>
           </tbody>
