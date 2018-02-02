@@ -8,6 +8,13 @@ import {AuthModule} from "./auth/auth.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {SharedModule} from "./shared/shared.module";
 import {SystemModule} from "./system/system.module";
+import {UserService} from "./shared/services/user.service";
+import {AuthService} from "./shared/services/auth.service";
+import {UserModule} from "./user/user.module";
+import {AuthAdminGuard} from "./shared/guard/auth-admin.guard";
+import {AuthClientGuard} from "./shared/guard/auth-client.guard";
+import {AuthChefGuard} from "./shared/guard/auth-chef.guard";
+import {AuthManagerGuard} from "./shared/guard/auth-manager.guard";
 
 @NgModule({
   declarations: [
@@ -20,9 +27,17 @@ import {SystemModule} from "./system/system.module";
     AuthModule,
     AppRoutingModule,
     SharedModule,
-    SystemModule
+    SystemModule,
+    UserModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AuthService,
+    AuthAdminGuard,
+    AuthClientGuard,
+    AuthChefGuard,
+    AuthManagerGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
