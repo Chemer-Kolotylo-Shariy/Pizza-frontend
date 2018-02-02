@@ -43,12 +43,15 @@ export class LoginComponent implements OnInit {
     const formData = this.form.value;
     console.log(formData);
     this.user = this.userService.getUserByPhone(formData.phone);
-    console.log(this.user);
-    if (this.user){
+    console.log(formData.remember);
 
+    if (this.user){
       if (this.user.password === formData.password){
-        console.log(true);
-        window.localStorage.setItem('user', JSON.stringify(this.user));
+        if (formData.remember){
+          window.localStorage.setItem('user', JSON.stringify(this.user));
+        } else {
+          window.sessionStorage.setItem('user', JSON.stringify(this.user));
+        }
         this.authService.login(this.user);
         if (this.user.role === 'ADMIN'){
           this.router.navigate(['/user', 'admin']);

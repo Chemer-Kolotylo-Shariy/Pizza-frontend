@@ -6,7 +6,7 @@ export class AuthService{
   private redirectUrl: string = '/';
   private loginUrl: string = '/login';
   private isAuthenticated = false;
-  private loggedInUser: User;
+  private loggedInUser: User = new User('name', 'surname', 'test@test.com', 123, '000', 'undefined', -1);
 
   login(user: User){
     if (user){

@@ -2,33 +2,14 @@ import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {AuthService} from "../services/auth.service";
+import {BaseGuard} from "../core/base.guard";
+import {RoleModel} from "../models/role.model";
 
 @Injectable()
-export class AuthManagerGuard implements CanActivate, CanActivateChild{
+export class AuthManagerGuard extends BaseGuard{
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    let url: string = state.url;
-    console.log('Url: ' + url);
-
-    if (this.authService.isUserLoggenIn()){
-      return true;
-    }
-    this.authService.setRedirectUrl(url);
-    this.router.navigate([this.authService.getLoginUrl()]);
-    return false;
-  }
-
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    let loggedInUser = this.authService.getLoggerUser();
-    console.log(this.authService.isUserLoggenIn() + " ____ " + loggedInUser);
-    if (loggedInUser.role === 'MANAGER'){
-      return true;
-    } else {
-      console.log("auth-manager.guard, error canActivateChild, role can not Admin");
-      return false;
-    }
+  constructor(public authService: AuthService, public router: Router, private role: RoleModel) {
+    super(authService, router);
+    this.setRole(role.roleManager);
   }
 }

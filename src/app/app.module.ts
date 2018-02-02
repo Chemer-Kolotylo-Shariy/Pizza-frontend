@@ -15,6 +15,8 @@ import {AuthAdminGuard} from "./shared/guard/auth-admin.guard";
 import {AuthClientGuard} from "./shared/guard/auth-client.guard";
 import {AuthChefGuard} from "./shared/guard/auth-chef.guard";
 import {AuthManagerGuard} from "./shared/guard/auth-manager.guard";
+import {BaseGuard} from "./shared/core/base.guard";
+import {RoleModel} from "./shared/models/role.model";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {AuthManagerGuard} from "./shared/guard/auth-manager.guard";
     AuthAdminGuard,
     AuthClientGuard,
     AuthChefGuard,
-    AuthManagerGuard
+    AuthManagerGuard,
+    BaseGuard,
+    RoleModel
   ],
   bootstrap: [AppComponent]
 })
