@@ -37,3 +37,7 @@ border-color: #53A3CD;
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.alert-danger-custom{
+  color: red;
+}
