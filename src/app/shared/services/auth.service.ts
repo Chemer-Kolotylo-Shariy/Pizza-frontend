@@ -1,8 +1,21 @@
+import {Injectable} from "@angular/core";
+import {User} from "../models/user.model";
+@Injectable()
 export class AuthService{
-  private isAuthenticated = false;
 
-  login(){
-    this.isAuthenticated = true;
+  private redirectUrl: string = '/';
+  private loginUrl: string = '/login';
+  private isAuthenticated = false;
+  private loggedInUser: User;
+
+  login(user: User){
+    if (user){
+      this.loggedInUser = user;
+      console.log(user);
+      this.isAuthenticated = true;
+    } else {
+      this.isAuthenticated = false;
+    }
   }
 
   logout(){
@@ -10,7 +23,23 @@ export class AuthService{
     window.localStorage.clear();
   }
 
-  isLoggenIn(){
+  isUserLoggenIn(){
     return this.isAuthenticated;
+  }
+
+  getRedirectUrl(): string {
+    return this.redirectUrl;
+  }
+
+  setRedirectUrl(url: string): void{
+    this.redirectUrl = url;
+  }
+
+  getLoginUrl(): string {
+    return this.loginUrl;
+  }
+
+  getLoggerUser(): User{
+    return this.loggedInUser;
   }
 }
